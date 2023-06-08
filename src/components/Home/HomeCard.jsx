@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomeCard = ({ home }) => {
     return (
@@ -11,7 +12,7 @@ const HomeCard = ({ home }) => {
                 <p>Rs. {home.price}/Night</p>
             </div>
             <div className="house-btn-container text-center">
-                <button className='btn btn-warning'>Learn More</button>
+                <Link to="/acc" className='btn btn-warning'>Learn More</Link>
             </div>
         </div>
     )

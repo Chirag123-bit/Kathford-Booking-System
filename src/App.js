@@ -4,6 +4,9 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Homepage from './pages/Homepage';
 import Details from './components/Home/Details';
+import RegisterPage from './pages/Register';
+import LoginPage from './pages/Login';
+import ProfilePage from './pages/Profilepage';
 
 function App() {
   return (
@@ -13,8 +16,12 @@ function App() {
         <Route path='/' element={<Homepage />} />
         <Route path='/acc' element={<Details />} />
 
-        <Route path='/login' element={<h1>Login page</h1>} />
-        <Route path='/register' element={<h1>Register page</h1>} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/register' element={<RegisterPage />} />
+
+
+        <Route path='/profile' element={<ProfilePage />} />
+
       </Routes>
     </BrowserRouter>
   );
