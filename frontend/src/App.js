@@ -21,11 +21,12 @@ function App() {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
 
-
         <Route path='/profile' element={<ProfilePage />} />
-
         <Route path='/listings' element={<Listings />} />
+
         <Route path='/bookings' element={<Bookings />} />
+
+
       </Routes>
     </BrowserRouter>
   );
