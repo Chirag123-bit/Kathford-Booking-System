@@ -7,6 +7,8 @@ import Details from './components/Home/Details';
 import RegisterPage from './pages/Register';
 import LoginPage from './pages/Login';
 import ProfilePage from './pages/Profilepage';
+import Listings from './pages/Listings';
+import Bookings from './pages/Bookings';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
 
         <Route path='/profile' element={<ProfilePage />} />
 
+        <Route path='/listings' element={<Listings />} />
+        <Route path='/bookings' element={<Bookings />} />
       </Routes>
     </BrowserRouter>
   );

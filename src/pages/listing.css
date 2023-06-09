@@ -1,0 +1,27 @@
+#listing-search-bar input {
+    width: 55%;
+    height: 3rem;
+    border-radius: 1.2rem;
+    padding: 0 3rem;
+    font-size: 1.2rem;
+    border: 2px solid orange;
+    color: orange;
+}
+
+#listing-search-bar input:focus,
+#listing-search-bar input:active {
+    border-color: orange;
+    outline: none;
+}
+
+#listing-search-bar {
+    position: relative;
+}
+
+#listing-search-bar i {
+    font-size: 1.5rem;
+    color: orange;
+    position: absolute;
+    top: 0.6rem;
+    right: 23rem
+}
