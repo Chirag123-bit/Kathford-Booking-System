@@ -1,12 +1,16 @@
 const User = require("../models/UserModel")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 
-module.exports.sayHello = (req, res) => {
-    return res.json({
-        "msg": "Hello World"
+const generateToken = (id) => {
+    const token = jwt.sign({ id: id }, process.env.JWT_SECRET, {
+        "expiresIn": "1d"
     })
+    return token;
 }
+
+
 
 module.exports.register = async (req, res) => {
     try {
@@ -44,6 +48,48 @@ module.exports.register = async (req, res) => {
                     "msg": err,
                 })
             })
+
+    } catch (error) {
+        return res.json({
+            "status": false,
+            "msg": error.message
+        })
+    }
+}
+
+
+
+module.exports.login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.findOne({ username })
+        if (!user) {
+            return res.json({
+                "status": false,
+                "msg": "Username or Password Invalid"
+            })
+        }
+
+        const valid = await bcrypt.compare(password, user.password)
+        if (!valid) {
+            return res.json({
+                "status": false,
+                "msg": "Username or Password Invalid"
+            })
+        }
+
+        const token = generateToken({ id: user._id })
+        res.cookie("token", token, {
+            expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
+            httpOnly: true
+        })
+
+        return res.json({
+            "status": true,
+            "msg": "Login Successful",
+            user,
+            token
+        })
 
     } catch (error) {
         return res.json({
