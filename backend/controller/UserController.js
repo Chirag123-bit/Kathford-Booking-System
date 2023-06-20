@@ -100,4 +100,60 @@ module.exports.login = async (req, res) => {
 }
 
 
+module.exports.logout = async (req, res) => {
+    try {
+        res.cookie("token", null, {
+            expires: new Date(Date.now()),
+            httpOnly: true
+        })
 
+        return res.json({
+            "status": true,
+            "msg": "Logout Successful",
+        })
+
+    } catch (error) {
+        return res.json({
+            "status": false,
+            "msg": error.message
+        })
+    }
+}
+
+
+module.exports.myDetails = async (req, res) => {
+    try {
+        const user = req.user;
+        return res.json({
+            "status": true,
+            user
+        })
+
+    } catch (error) {
+        return res.json({
+            "status": false,
+            "msg": error.message
+        })
+    }
+}
+
+
+
+module.exports.updateProfile = async (req, res) => {
+    try {
+        const { fname, lname } = req.body;
+        const newData = { fname, lname }
+        const user = await User.findByIdAndUpdate(req.user.id, newData, {
+            new: true
+        })
+        return res.json({
+            success: true,
+            user,
+        });
+    } catch (error) {
+        return res.json({
+            success: false,
+            message: error.message,
+        });
+    }
+}
