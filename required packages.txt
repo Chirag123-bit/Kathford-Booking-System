@@ -2,3 +2,4 @@ react-toastify
 redux
 redux-devtools-extension
 redux-thunk
+react-redux
