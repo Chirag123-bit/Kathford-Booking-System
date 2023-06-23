@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser")
 app.use(cookieParser())
 app.use(morgan("dev"))
 
-require("dotenv").config()
+require("dotenv").config({ path: "backend/.env" })
 require("./database/connection")
 
 app.use(express.json())

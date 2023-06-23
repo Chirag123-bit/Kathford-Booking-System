@@ -1,0 +1,23 @@
+{
+  "name": "kathford-booking-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chirag123-bit/Kathford-Booking-System.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chirag123-bit/Kathford-Booking-System/issues"
+  },
+  "homepage": "https://github.com/Chirag123-bit/Kathford-Booking-System#readme",
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

@@ -3,3 +3,4 @@ redux
 redux-devtools-extension
 redux-thunk
 react-redux
+axios

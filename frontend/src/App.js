@@ -9,6 +9,8 @@ import LoginPage from './pages/Login';
 import ProfilePage from './pages/Profilepage';
 import Listings from './pages/Listings';
 import Bookings from './pages/Bookings';
+import { ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css"
 
 function App() {
   return (
@@ -25,9 +27,8 @@ function App() {
         <Route path='/listings' element={<Listings />} />
 
         <Route path='/bookings' element={<Bookings />} />
-
-
       </Routes>
+      <ToastContainer autoClose={500} />
     </BrowserRouter>
   );
 }
