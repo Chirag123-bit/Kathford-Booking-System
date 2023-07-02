@@ -8,11 +8,11 @@ const HomeCard = ({ home }) => {
                 <img src={home.image} alt="" />
             </div>
             <div className="house-text-container">
-                <h4>{home.city}, {home.country}</h4>
+                <h4>{home.name}</h4>
                 <p>Rs. {home.price}/Night</p>
             </div>
             <div className="house-btn-container text-center">
-                <Link to="/acc" className='btn btn-warning'>Learn More</Link>
+                <Link to={`/acc/${home._id}`} className='btn btn-warning'>Learn More</Link>
             </div>
         </div>
     )

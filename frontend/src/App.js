@@ -11,14 +11,28 @@ import Listings from './pages/Listings';
 import Bookings from './pages/Bookings';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css"
+import { useEffect } from 'react';
+
+import { useSelector } from 'react-redux';
+import { loadUser } from './Action/userAction';
+import store from './Store';
 
 function App() {
+
+
+  const { isAuthenticated, user, loading } = useSelector((state) => state.user)
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, [])
+
+
+
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar isAuthenticated={isAuthenticated} user={user} />
       <Routes>
         <Route path='/' element={<Homepage />} />
-        <Route path='/acc' element={<Details />} />
+        <Route path='/acc/:id' element={<Details />} />
 
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
