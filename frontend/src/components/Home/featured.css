@@ -1,10 +1,16 @@
 .homeCard {
     width: 22%;
+    height: 300px;
+}
+
+.house-image-container {
+    height: 100%;
 }
 
 .house-image-container img {
     width: 100%;
     border-radius: 20px;
+    height: 100%;
 }
 
 .house-text-container h4 {

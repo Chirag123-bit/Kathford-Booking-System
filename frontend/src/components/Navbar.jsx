@@ -35,7 +35,7 @@ const Navbar = ({ isAuthenticated, user }) => {
 
                     {
                         isAuthenticated ? (
-                            <div className="dropdown">
+                            <div className="dropdown profileImageNav">
                                 <img src={user.profilePic} alt="" style={{ width: "3rem" }} />
                                 <a className="btn text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {user.username}

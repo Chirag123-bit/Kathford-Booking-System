@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const HomeCard = ({ home }) => {
     return (
-        <div className="homeCard my-4">
+        <div className="homeCard" style={{ marginBottom: "8rem" }}>
             <div className="house-image-container">
                 <img src={home.image} alt="" />
             </div>

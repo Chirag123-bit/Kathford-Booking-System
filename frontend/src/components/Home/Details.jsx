@@ -46,30 +46,48 @@ const Details = () => {
                         </div >
                         <div className="services-section">
 
-                            <div className="accomodation-service">
-                                <i className="fa-solid fa-wifi"></i>
-                                <p>Free Wifi</p>
-                            </div>
+                            {
+                                details.wifi ? (<div className="accomodation-service">
+                                    <i className="fa-solid fa-wifi"></i>
+                                    <p>Free Wifi</p>
+                                </div>) : (<></>)
+                            }
 
-                            <div className="accomodation-service">
-                                <i className="fa-solid fa-car"></i>
-                                <p>Free Parking</p>
-                            </div>
+                            {
+                                details.pickup ? (
+                                    <div className="accomodation-service">
+                                        <i className="fa-solid fa-car"></i>
+                                        <p>Free Parking</p>
+                                    </div>
+                                ) : (<></>)
+                            }
+
+                            {
+                                details.allServices ? (
+                                    <div className="accomodation-service">
+                                        <i className="fa-solid fa-shower"></i>
+                                        <p>Water Facilities</p>
+                                    </div>
+                                ) : (<></>)
+                            }
 
 
-                            <div className="accomodation-service">
-                                <i className="fa-solid fa-shower"></i>
-                                <p>Water Facilities</p>
-                            </div>
-                            <div className="accomodation-service">
-                                <i className="fa-solid fa-phone"></i>
-                                <p>24/7 Services</p>
-                            </div>
 
-                            <div className="accomodation-service">
-                                <i className="fa-solid fa-bell-concierge"></i>
-                                <p>Consilerage Services</p>
-                            </div>
+                            {
+                                details.telephone ? (<div className="accomodation-service">
+                                    <i className="fa-solid fa-phone"></i>
+                                    <p>24/7 Services</p>
+                                </div>) : (<> </>)
+                            }
+
+                            {
+                                details.cons ? (<div className="accomodation-service">
+                                    <i className="fa-solid fa-bell-concierge"></i>
+                                    <p>Consilerage Services</p>
+                                </div>) : (<> </>)
+                            }
+
+
 
 
                         </div>
