@@ -87,7 +87,8 @@ module.exports.getAccomodation = async (req, res, next) => {
         return res.json({
             data: accomodation,
             "success": true,
-            stat
+            stat,
+            valid
         });
     } catch (error) {
         console.log(error)

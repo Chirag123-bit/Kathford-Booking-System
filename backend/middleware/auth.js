@@ -41,3 +41,26 @@ exports.authorizedRole = (...roles) => {
         }
     }
 }
+
+
+exports.allowBoth = async (req, res, next) => {
+    try {
+        const token = req.cookies["token"];
+        if (!token) {
+            next()
+        }
+        const decodedData = jwt.verify(token, process.env.JWT_SECRET);
+
+        const user = await User.findById(decodedData.id.id);
+
+        req.user = user;
+        next();
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success: false,
+            message: error.message,
+        });
+    }
+}
