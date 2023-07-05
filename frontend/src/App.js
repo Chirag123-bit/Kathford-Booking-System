@@ -16,6 +16,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { loadUser } from './Action/userAction';
 import store from './Store';
+import User from './components/Admin/User';
 
 function App() {
 
@@ -41,6 +42,7 @@ function App() {
         <Route path='/listings' element={<Listings />} />
 
         <Route path='/bookings' element={<Bookings />} />
+        <Route path='/admin/user' element={<User />} />
       </Routes>
       <ToastContainer autoClose={500} />
     </BrowserRouter>

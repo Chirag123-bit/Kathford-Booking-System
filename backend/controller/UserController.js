@@ -157,3 +157,60 @@ module.exports.updateProfile = async (req, res) => {
         });
     }
 }
+
+
+module.exports.allUsers = async (req, res) => {
+    try {
+        const users = await User.find();
+        return res.json({
+            "success": true,
+            users
+        })
+
+    } catch (error) {
+        return res.json({
+            "success": false,
+            "msg": error.message
+        })
+    }
+}
+module.exports.upgradeUser = async (req, res) => {
+    try {
+        const { id } = req.body;
+        const user = await User.findById(id);
+        if (user.type == "admin") {
+            user.type = "user"
+        }
+        else {
+            user.type = "admin"
+        }
+        user.save()
+        return res.json({
+            "success": true,
+            "msg": "Updated Successfully"
+        })
+    } catch (error) {
+        return res.json({
+            "success": false,
+            "msg": error.message
+        })
+    }
+}
+
+
+module.exports.deleteUser = async (req, res, next) => {
+    try {
+        const { id } = req.body
+        await User.findByIdAndDelete(id)
+        return res.json({
+            success: true,
+            msg: "User Deleted",
+        });
+
+    } catch (error) {
+        return res.json({
+            success: false,
+            msg: error.message,
+        });
+    }
+}
