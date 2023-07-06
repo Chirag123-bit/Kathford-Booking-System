@@ -10,6 +10,8 @@ require("./database/connection")
 
 app.use(express.json())
 
+app.use(express.urlencoded({ extended: false }))
+
 const userRoute = require("./routes/UserRoute")
 const hotelRoute = require("./routes/HotelRoute")
 const accomodationRoute = require("./routes/AccomodationRoute")
@@ -19,6 +21,8 @@ app.use("/api/user", userRoute)
 app.use("/api/hotel", hotelRoute)
 app.use("/api/acc", accomodationRoute)
 app.use("/api/book", bookingRoute)
+app.use("/backend/uploads", express.static("backend/uploads"));
+
 
 
 app.listen(process.env.PORT, () => {
