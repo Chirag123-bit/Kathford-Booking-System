@@ -26,8 +26,6 @@ module.exports.addHotel = [
                     "msg": "Hotel With this name already exists"
                 })
             }
-            console.log(req.body)
-            console.log(req.file)
             const newHotel = new Hotel({ name, city, country, logo: req.file.path })
             newHotel.save().then((result) => {
                 return res.json({

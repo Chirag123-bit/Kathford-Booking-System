@@ -5,7 +5,7 @@ const { isAuthenticated, authorizedRole, allowBoth } = require("../middleware/au
 const router = require("express").Router()
 router.post("/add", isAuthenticated, addAccomodation)
 router.get("/all", getAllAccomodations)
+router.patch("/", isAuthenticated, updateAccomodation)
 router.get("/:id", allowBoth, getAccomodation)
-router.patch("/:id", isAuthenticated, updateAccomodation)
 
 module.exports = router
