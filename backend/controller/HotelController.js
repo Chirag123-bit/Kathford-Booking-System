@@ -85,7 +85,7 @@ module.exports.getHotel = async (req, res, next) => {
 }
 
 
-module.exports.updateHotel = async (req, res) => {
+module.exports.updateHotel = [upload.single("logo"), async (req, res) => {
     try {
         const {
             name,
@@ -97,6 +97,9 @@ module.exports.updateHotel = async (req, res) => {
             name,
             city,
             country
+        }
+        if (req.file) {
+            newData.logo = req.file.path
         }
         const hotel = await Hotel.findByIdAndUpdate(id, newData, {
             new: true,
@@ -112,4 +115,4 @@ module.exports.updateHotel = async (req, res) => {
             msg: error.message,
         });
     }
-}
+}]

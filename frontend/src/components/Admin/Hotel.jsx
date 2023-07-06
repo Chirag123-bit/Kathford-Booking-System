@@ -107,6 +107,7 @@ const Hotels = () => {
         console.log(formData)
 
         const { data } = await axios.patch("/api/hotel/", formData, config1)
+        console.log(data)
         if (data.success) {
             getHotels();
             hideModal()
