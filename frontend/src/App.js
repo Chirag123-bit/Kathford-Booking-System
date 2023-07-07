@@ -19,6 +19,7 @@ import store from './Store';
 import User from './components/Admin/User';
 import Hotels from './components/Admin/Hotel';
 import Accomodations from './components/Admin/Accomodation';
+import Booking from './components/Admin/Booking';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
         <Route path='/admin/user' element={<User />} />
         <Route path='/admin/hotel' element={<Hotels />} />
         <Route path='/admin/accomodation' element={<Accomodations />} />
+        <Route path='/admin/booking' element={<Booking />} />
       </Routes>
       <ToastContainer autoClose={500} />
     </BrowserRouter>

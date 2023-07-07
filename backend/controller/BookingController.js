@@ -60,7 +60,7 @@ module.exports.addBooking = async (req, res, next) => {
 
 module.exports.getAllBookings = async (req, res, next) => {
     try {
-        const bookings = await Booking.find();
+        const bookings = await Booking.find().populate("accomodation").populate("user");
         return res.json({
             data: bookings,
             "success": true
