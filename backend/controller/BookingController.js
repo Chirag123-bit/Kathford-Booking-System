@@ -113,12 +113,13 @@ module.exports.getBooking = async (req, res, next) => {
 module.exports.updateBooking = async (req, res, next) => {
     try {
         const {
-            status
+            status,
+            id
         } = req.body;
         const newData = {
             status
         }
-        const id = req.params.id
+
         const booking = await Booking.findByIdAndUpdate(id, newData, {
             new: true,
             runValidators: true
